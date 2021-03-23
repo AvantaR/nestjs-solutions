@@ -4,7 +4,7 @@
 
 ### Hiding schema section
 
-There is no special switch to turn off and turn on schema section module in Swagger implementation for NestJS. You can simply set `defaultModelsExpandDepth` param in `swaggerOptions`, while setting up SwaggerModule.
+There is no special switch to turn off and turn on schema section module in OpenAPI implementation for NestJS. You can simply set `defaultModelsExpandDepth` param in `swaggerOptions`, while setting up SwaggerModule.
 
 ```TypeScript
 const options = new DocumentBuilder()
