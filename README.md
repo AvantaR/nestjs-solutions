@@ -26,7 +26,7 @@ If you want to validate nested object in your DTO with class-validator, use `@Va
 export class Message {
   @ValidateNested()
   @Type(() => Author)
-  data: Author;
+  author: Author;
 }
 ```
 
@@ -36,7 +36,7 @@ If you need to validate array of objects, use `each: true` option for `@Validate
 export class User {
   @ValidateNested({ each: true })
   @Type(() => Message)
-  data: Message[];
+  messages: Message[];
 }
 ```
 
