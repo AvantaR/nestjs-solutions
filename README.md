@@ -18,6 +18,28 @@ SwaggerModule.setup('api', app, document, {
 
 ## Validation
 
+### Validation of nested objects with class-validator
+
+If you want to validate nested object in your DTO with class-validator, use `@ValidateNested()` decorator and specify typing with `@Type()` decorator.
+
+```Typescript
+export class Message {
+  @ValidateNested()
+  @Type(() => Author)
+  data: Author;
+}
+```
+
+If you need to validate array of objects, use `each: true` option for `@ValidateNested()` decorator.
+
+```Typescript
+export class User {
+  @ValidateNested({ each: true })
+  @Type(() => Message)
+  data: Message[];
+}
+```
+
 ### Dependency Injection in custom validation class
 
 If you want to create your own validation class and inject into it your dependencies, you need to:
