@@ -16,6 +16,21 @@ SwaggerModule.setup('api', app, document, {
 });
 ```
 
+### Sorting tags and endpoints
+
+OpenAPI allows handy grouping with tags. You just need to use `@ApiTags()` or `@ApiOperational({ tags: [YourTag]})` decorators. If you wish to sort tags or endpoints alphabetically, you need to pass `tagsSorter` and `operationsSorter` as option in `swaggerOptions`.
+
+```TypeScript
+const options = new DocumentBuilder()
+  .setTitle('Docs with sorted tags and endpoints')
+  .build();
+const document = SwaggerModule.createDocument(app, options);
+
+SwaggerModule.setup('api', app, document, {
+  swaggerOptions: { tagsSorter: 'alpha', operationsSorter: 'alpha' },
+});
+```
+
 ## Validation
 
 ### Validation of nested objects with class-validator
