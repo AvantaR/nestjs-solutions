@@ -54,6 +54,7 @@ export class User {
   messages: Message[];
 }
 ```
+You can also read more about it in [my article](https://dev.to/avantar/validating-nested-objects-with-class-validator-in-nestjs-1gn8).
 
 ### Dependency Injection in custom validation class
 
