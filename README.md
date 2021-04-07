@@ -108,3 +108,6 @@ async function bootstrap() {
 
 ```
 Now you can use your services and repository in custom validation classes. I don't need to say how useful this is!
+
+You can also read more about it in [my article](https://dev.to/avantar/custom-validation-with-database-in-nestjs-gao).
+
