@@ -148,7 +148,7 @@ If you're using Visual Studio Code as your IDE, you can try snippet below:
 "Print to console SQL query with filled params": {
   "prefix": "sqldump",
   "body": [
-    "let [sql, params] = query.getQueryAndParameters(); \nparams.forEach((value) => { \n  if (typeof value === 'string') { \n    sql = sql.replace(`?`, `\"${value}\"`); \n  } else { \n    sql = sql.replace(`?`, value); \n  } \n}); \n\nconsole.log(sql);\n"
+    "let [sql, params] = query.getQueryAndParameters(); \nparams.forEach((value) => { \n  if (typeof value === 'string') { \n    sql = sql.replace(`?`, `\"\\${value}\"`); \n  } else { \n    sql = sql.replace(`?`, value); \n  } \n}); \n\nconsole.log(sql);\n"
   ]
 }
 ```
