@@ -111,3 +111,44 @@ Now you can use your services and repository in custom validation classes. I don
 
 You can also read more about it in [my article](https://dev.to/avantar/custom-validation-with-database-in-nestjs-gao).
 
+### TypeOrm
+
+## How to get SQL query with filled parameters?
+
+Event it isn't NestJS related case only, but it can be useful for many developers. Many times you need to print out SQL query, to check it manually in your database. Although TypeORM provides `getSql()` method, it isn't handy for developers, because it doesn't fill parameter placeholders. And you get something like this:
+
+```SQL
+SELECT *
+FROM users
+WHERE id = ?
+AND name = ?
+ORDER BY ?
+```
+
+You must admit it isn't very helpful, because you need to replace each `?` with proper value. Here is quick snippet, which will help you:
+
+```TypeScript
+let [sql, params] = query.getQueryAndParameters(); 
+params.forEach((value) => { 
+  if (typeof value === 'string') { 
+    sql = sql.replace(`?`, `"value"`); 
+  } else { 
+    sql = sql.replace(`?`, value); 
+  } 
+}); 
+
+console.log(sql);
+```
+
+`query` variable is SelectQueryBuilder<Entity> type.
+  
+If you're using Visual Studio Code as your IDE, you can try snippet below:
+
+```JSON
+"Print to console SQL query with filled params": {
+  "prefix": "sqldump",
+  "body": [
+    "let [sql, params] = query.getQueryAndParameters(); \nparams.forEach((value) => { \n  if (typeof value === 'string') { \n    sql = sql.replace(`?`, `\"${value}\"`); \n  } else { \n    sql = sql.replace(`?`, value); \n  } \n}); \n\nconsole.log(sql);\n"
+  ]
+}
+```
