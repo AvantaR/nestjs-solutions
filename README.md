@@ -115,7 +115,7 @@ You can also read more about it in [my article](https://dev.to/avantar/custom-va
 
 ## How to get SQL query with filled parameters?
 
-Event it isn't NestJS related case only, but it can be useful for many developers. Many times you need to print out SQL query, to check it manually in your database. Although TypeORM provides `getSql()` method, it isn't handy for developers, because it doesn't fill parameter placeholders. And you get something like this:
+Even it isn't NestJS related case only, but it can be useful for many developers. Many times you need to print out SQL query, to check it manually in your database. Although TypeORM provides `getSql()` method, it isn't handy for developers because it doesn't fill parameter placeholders. And you get something like this:
 
 ```SQL
 SELECT *
@@ -125,7 +125,7 @@ AND name = ?
 ORDER BY ?
 ```
 
-You must admit it isn't very helpful, because you need to replace each `?` with proper value. Here is quick snippet, which will help you:
+You must admit it isn't very helpful because you need to replace each `?` with proper value. Here is a quick snippet, which will help you:
 
 ```TypeScript
 let [sql, params] = query.getQueryAndParameters(); 
@@ -142,7 +142,7 @@ console.log(sql);
 
 `query` variable is SelectQueryBuilder<Entity> type.
   
-If you're using Visual Studio Code as your IDE, you can try snippet below:
+If you're using Visual Studio Code as your IDE, you can try the snippet below:
 
 ```JSON
 "Print to console SQL query with filled params": {
